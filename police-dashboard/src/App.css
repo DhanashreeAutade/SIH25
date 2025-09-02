@@ -1,0 +1,147 @@
+html, body, #root {
+  height: 100%;
+}
+
+.app-layout {
+  display: grid;
+  grid-template-columns: 1.6fr 1fr;
+  grid-template-rows: auto 1fr;
+  grid-template-areas: 'header header' 'map sidebar';
+  height: 100vh;
+}
+
+.app-header {
+  grid-area: header;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 16px;
+  border-bottom: 1px solid #eaeaea;
+}
+
+.map-container {
+  grid-area: map;
+  height: 100%;
+}
+
+.sidebar {
+  grid-area: sidebar;
+  height: 100%;
+  border-left: 1px solid #eaeaea;
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar-header {
+  padding: 12px 16px;
+  font-weight: 600;
+  border-bottom: 1px solid #f2f2f2;
+}
+
+.list {
+  overflow: auto;
+}
+
+.list-item {
+  width: 100%;
+  text-align: left;
+  padding: 12px 16px;
+  background: #fff;
+  border: 0;
+  border-bottom: 1px solid #f8f8f8;
+  cursor: pointer;
+}
+
+.list-item:hover {
+  background: #fafafa;
+}
+
+.list-item.selected {
+  background: #eef6ff;
+}
+
+.list-item.has-sos .item-title::after {
+  content: ' • SOS';
+  color: #d73a49;
+  font-weight: 600;
+}
+
+.item-title {
+  font-weight: 600;
+}
+
+.item-sub {
+  margin-top: 6px;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  color: #666;
+  font-size: 13px;
+}
+
+.badge {
+  display: inline-block;
+  padding: 2px 6px;
+  border-radius: 6px;
+  font-size: 11px;
+  font-weight: 700;
+  color: #fff;
+}
+.badge-low { background: #2d7a46; }
+.badge-medium { background: #e0a800; }
+.badge-high { background: #d73a49; }
+.badge-critical { background: #6f42c1; }
+
+.reason { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.no-sos { color: #94a3b8; }
+
+.marker-dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #2563eb;
+  border: 2px solid #fff;
+  box-shadow: 0 0 0 2px rgba(37,99,235,0.4);
+}
+.marker-dot.marker-sos {
+  background: #ef4444;
+  box-shadow: 0 0 0 3px rgba(239,68,68,0.35);
+}
+
+.leaflet-container { height: 100%; }
+
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}
